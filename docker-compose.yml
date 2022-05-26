@@ -5,12 +5,13 @@ services:
     ports:
       - 8080:8080
 
-   redis:
+  redis:
     image: redis
     ports:
       - 6379
     volumes:
       - redis:/data
+      
       API_ID: $API_ID
       API_HASH: $API_HASH
       BOT_TOKEN: $BOT_TOKEN
