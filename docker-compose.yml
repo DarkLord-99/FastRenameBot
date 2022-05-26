@@ -1,4 +1,4 @@
-version: ""
+version: "4.10"
 services:  
    shop:
     build: .
@@ -6,6 +6,6 @@ services:
       API_ID: $API_ID
       API_HASH: $API_HASH
       BOT_TOKEN: $BOT_TOKEN
-      DATABASE_URI: $DATABASE_URI
-      ADMINS: $ADMINS
+      MONGODB_URI: $MONGODB_URI
+      OWNER_ID: $OWNER_ID
       LOG_CHANNEL: $LOG_CHANNEL
