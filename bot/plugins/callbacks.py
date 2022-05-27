@@ -21,7 +21,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
     elif cb.data == "showThumbnail":
         thumbnail = await db.get_thumbnail(cb.from_user.id)
         if not thumbnail:
-            await cb.answer("You didn't set any custom thumbnail!", show_alert=True)
+            await cb.answer("You didn't set any custom thumbnail !", show_alert=True)
         else:
             await cb.answer()
             await c.send_photo(cb.message.chat.id, thumbnail, "Custom Thumbnail",
@@ -64,8 +64,8 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
         await db.set_caption(cb.from_user.id, user_input_msg.text.markdown)
         await cb.message.edit("Custom Caption Added Successfully!",
                               reply_markup=types.InlineKeyboardMarkup(
-                                  [[types.InlineKeyboardButton("Show Settings",
-                                                               callback_data="⚙ showSettings")]]
+                                  [[types.InlineKeyboardButton("⚙ Show Settings",
+                                                               callback_data="showSettings")]]
                               ))
     elif cb.data == "triggerApplyCaption":
         await cb.answer()
@@ -89,7 +89,7 @@ async def cb_handlers(c: Client, cb: "types.CallbackQuery"):
                 text=caption,
                 parse_mode="Markdown",
                 reply_markup=types.InlineKeyboardMarkup([[
-                    types.InlineKeyboardButton("Go Back", callback_data="⚙ showSettings")
+                    types.InlineKeyboardButton("Go Back", callback_data="showSettings")
                 ]])
             )
     elif cb.data == "triggerUploadMode":
